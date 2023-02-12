@@ -1,0 +1,36 @@
+.InputBox{
+    border: solid 5px black;
+    padding: 5px;
+    flex: auto;
+    margin: 10px;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+
+}
+
+#InputBox{
+    border: solid 5px black;
+    padding: 5px;
+    flex: auto;
+    margin: 10px;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+
+}
+
+.Container{
+    text-align: center;
+    display: inline;
+}
+
+
+.Fett{
+    font-weight: bold;
+    color: green;
+}
+
+.Underline{
+    text-underline: black;
+}
