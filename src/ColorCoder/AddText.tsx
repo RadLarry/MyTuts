@@ -19,13 +19,13 @@ class Textbox extends React.Component<any, any>{
             </div>
 
         )
-
-
     }
 // hallo *wie* geht *es* dir
     // alternative durch toHTML dann immer durh if abfrage pushen mit div container...
     decodeText(text:any) {
         //fettgedruckt durch *xxxxxx*
+        text.replace(/\*(.*)\*/, '<span className="Fett">$1</span>')
+
         let splittext = text.split("*");
         let out = [];
         for (let i =0; i <= splittext.length;i++){
