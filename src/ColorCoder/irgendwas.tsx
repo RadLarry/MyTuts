@@ -1,17 +1,16 @@
 import React from 'react'
 import './ColorCoding.css'
+import {useHref} from "react-router-dom";
 
-interface Props {
-    onDadidu: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
+
 
 interface State {
     inputValue: string
     morphedTexts: string[]
 }
 
-export default class Irgendwas extends React.Component<Props, State> {
-    constructor(props: Props) {
+export default class Irgendwas extends React.Component<any, State> {
+    constructor(props: any) {
         super(props);
         this.state = {
             inputValue: '',
@@ -24,6 +23,7 @@ export default class Irgendwas extends React.Component<Props, State> {
 
         return (
             <div>
+
                 <input type={'text'}
                        value={this.state.inputValue}
                        onKeyDown={(e) => this.handleKeyDown(e)} // durch inline function brauch ich nicht bidnen

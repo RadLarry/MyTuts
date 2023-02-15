@@ -1,6 +1,6 @@
 import React from 'react';
 import "./ColorCoding.css"
-
+// bad version aber mit bind anstele von inline function this
 
 class Textbox extends React.Component<any, any>{
     constructor(props:any) {
