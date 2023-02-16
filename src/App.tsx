@@ -30,7 +30,6 @@ function App() {
 
 
           <Route path={"/meme"} element={<>
-            <Link to="/" > <button className="buttons">Back to main</button> </Link>
             <MemePauschale/>
           </>}/>
         </Routes>
