@@ -7,6 +7,7 @@ import Irgendwas from "./ColorCoder/irgendwas";
 import Api from "./dotaapi/dotaapi";
 import MemePauschale from "./Memerino Pauschale/MemePauschale";
 import {BrowserRouter as Router, Routes, Route, createBrowserRouter, Link} from "react-router-dom";
+import {PlayerField} from "./Punktesystem/Points";
 
 function App() {
 
@@ -22,11 +23,23 @@ function App() {
           <Route path={"/"} element={<>
             <Link to="/meme" > <button className="buttons" >meme</button> </Link>
             <Link to="/colorcoder" > <button className="buttons"> colorcoder</button> </Link>
+            <Link to="/gamestats" > <button className="buttons"> gamestats</button> </Link>
+
             <Api/>
+
           </>}/>
           <Route path={"/colorcoder"} element={<>
             <Link to="/" > <button className="buttons">Back to main</button> </Link>
             <Irgendwas/></>}/>
+
+          <Route
+          path={"/gamestats"} element={<>
+
+            <Link to="/" > <button className="buttons">Back to main</button> </Link>
+            <PlayerField/>
+            </>}
+          />
+
 
 
           <Route path={"/meme"} element={<>

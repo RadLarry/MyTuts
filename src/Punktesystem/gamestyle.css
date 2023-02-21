@@ -1,0 +1,36 @@
+.Krams{
+    display: inline-flex;
+    height: 100px;
+    width: 100px;
+    margin-left: 5px;
+    margin-top: 20px;
+    text-align: center;
+
+}
+
+.Krams:hover{
+    display: inline-flex;
+    color: black;
+}
+
+.Kramsbg:hover{
+    background: aqua;
+}
+.inputfield{
+    width: 100px;
+    height: 10px;
+    margin-top: 100px;
+    margin-left: -100px;
+}
+
+.smallbutton{
+display: inline-flex;
+    margin-top: 100px;
+    margin-left:-60px;
+    height: 20px;
+    width: 35px;
+}
+.smallbutton:hover{
+    background: red;
+
+}
