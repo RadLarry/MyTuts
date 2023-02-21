@@ -6,14 +6,14 @@ interface Memeprops {
     searchtype: string
     whatinfo: string
 
-    happyChangeFunction: (v: string) => void
+    happyChangeFunction: (d: string) => void
 
-    value: string
+    valuee: string
     someRandomOptionalProp?: string  | undefined
 }
 
 interface InputState {
-    value: string
+    valuee: string
     propValue: string
 }
 
@@ -24,8 +24,8 @@ class Inputfield extends React.Component<Memeprops,InputState> {
     constructor(props: Memeprops) {
         super(props);
         this.state = {
-            value: props.value,
-            propValue: props.value
+            valuee: props.valuee,
+            propValue: props.valuee
         }
     }
 
@@ -33,11 +33,11 @@ class Inputfield extends React.Component<Memeprops,InputState> {
 
     // nur update bei neuerer prop
     static getDerivedStateFromProps(props: Memeprops, state: InputState) {
-        if(props.value !== state.propValue) {
+        if(props.valuee !== state.propValue) {
             return {
                 ...state,
-                value: props.value,
-                propValue: props.value
+                valuee: props.valuee,
+                propValue: props.valuee
             }
         }
         return state
@@ -63,22 +63,22 @@ class Inputfield extends React.Component<Memeprops,InputState> {
                 <input type={this.props.searchtype}
                        onChange={(e) => {
                            // this.props.happyChangeFunction(e.target.value)
-                           this.setState({...this.state, value: e.target.value})
+                           this.setState({...this.state, valuee: e.target.value})
                        }}
                        onKeyDown={(e) => {
                            if(e.key === 'Enter') {
-                               this.props.happyChangeFunction(this.state.value)
+                               this.props.happyChangeFunction(this.state.valuee)
                            }
                        }
                        }
-                       value={this.state.value}
+                       value={this.state.valuee}
                 />
-                Ergebniss: {this.state.value}
+                Ergebniss: {this.state.valuee}
             </div>
         );
     }
 }
-
+// value feld egal=?
 interface State {
     input: string
     output: string
@@ -108,7 +108,7 @@ export default class MemePauschale extends React.Component<{}, State> {
             searchtype: 'text',
             whatinfo: key,
             happyChangeFunction: (v: string) => this.setState({...this.state, [key]: v}),
-            value: this.state[key]
+            valuee: this.state[key]
         })
 
         return (
@@ -122,8 +122,7 @@ export default class MemePauschale extends React.Component<{}, State> {
                 <Inputfield searchtype="text"
                             whatinfo="name"
                             happyChangeFunction={(v) => this.setState({...this.state, name: v})}
-                            value={this.state.name}
-
+                            valuee={this.state.name}
                 />
                 <legend> Bitte gib dein Nachnamen ein</legend>
                 <Inputfield {...propsToDeliver('nachname')}/>
@@ -131,14 +130,11 @@ export default class MemePauschale extends React.Component<{}, State> {
                 <Inputfield searchtype="number"
                             whatinfo="nummer"
                             happyChangeFunction={(v) => this.setState({...this.state, nummer: v})}
-                            value={this.state.nummer}
+                            valuee= {this.state.nummer}
+
                 />
-
                 Nummer:{JSON.stringify(this.state)}
-
                 <br/>
-
-
             </div>
         )
 

@@ -20,6 +20,7 @@ class Box extends React.Component<any, any>{
                 <button  className={"Kramsbg"} onClick={(e)=> this.newpoint(e,1)}> {this.props.name + ":\n"+this.state.points }</button>
                 <button  className={"smallbutton"} onClick={(e) => this.newpoint(e,5)}>+5</button>
                 <button  className={"smallbutton"} style={{marginLeft:0}} onClick={(e) => this.newpoint(e,10)}>+10</button>
+
             </div>
         );
     }
