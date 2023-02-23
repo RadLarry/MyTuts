@@ -13,10 +13,6 @@ function App() {
 
   return (
     <div className="App" id="App">
-
-
-
-
       <Router>
 
         <Routes>
