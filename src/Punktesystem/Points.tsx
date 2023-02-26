@@ -1,5 +1,6 @@
 import React from "react";
 import "./gamestyle.css";
+import {Link} from "react-router-dom";
 
 
 
@@ -52,29 +53,35 @@ export class PlayerField extends React.Component<{}, {ActivePlayer:[{name:string
 
 
     render() {
-        //@ts-ignore
-        const players:React.ReactElement[] = [];
-        const NumberRegex = new RegExp("^[0-9]+$");
+
+        const NumberRegex: RegExp = new RegExp("^[0-9]+$");
         return (
-            <div>
+            <div className={"body"}>
+                <Link to="/" > <button className="outbuttons">Back to main</button> </Link>
+                <div>
                 <br/>
                 <legend>Add X to all <input
+                    id="XInput"
 
                     onKeyDown={ (e:any) =>{
+
                     {if (e.key === "Enter" && NumberRegex.test(e.target.value) )
                     {   let InputValue = e.target.value as number;
                         let StateCopy = {...this.state};
 
 
-                        let ModifiedStateCopy = StateCopy.ActivePlayer.map(
+                         let t2 = StateCopy.ActivePlayer.map(
                             (state,index) =>{
+                                state.name = state.name;
                                 state.points = state.points + Number(InputValue);
-
+                                console.log(state)
                             }
                         )
-                        console.log({ModifiedStateCopy})
+                        console.log(StateCopy)
+                        console.log((t2))
+
                         //@ts-ignore
-                        this.setState({...this.state})
+                        this.setState({t2})
 
 
 
@@ -87,7 +94,7 @@ export class PlayerField extends React.Component<{}, {ActivePlayer:[{name:string
                                  () => {
                                      e.target.value = "";
 
-                                     e.style = {"background" :"red"}
+                                     e.style = {"background" :"red"};
                                  },1000
                              );
 
@@ -98,14 +105,32 @@ export class PlayerField extends React.Component<{}, {ActivePlayer:[{name:string
 
                     }}
 
-                /> </legend>
+                /> <button onClick={
+                    (e) => {
+                        //@ts-ignore
+                        if (NumberRegex.test(document.getElementById("XInput").value)) {
+                            this.state.ActivePlayer.map(
+                                (state, i) => {
+                                    //@ts-ignore
+                                    state.points = state.points + Number(document.getElementById("XInput").value);
+
+                                 this.setState({...this.state})}
+                            )
+                        }
+                        else {
+                        window.alert("number only");
+                        //@ts-ignore
+                        document.getElementById("XInput").value = "";
+                        }
+                    }
+                }>Click</button></legend>
 
 
                 <button id= "button1" onClick={
                     (e) =>
                     this.addplayer(e)}>Add Player</button>
-
-              <div>
+                </div>
+              <span>
                   { this.state.ActivePlayer.map( (p,i) => ( <Box
 
                                                                     pointfnct= {(e,amount) =>{
@@ -121,7 +146,7 @@ export class PlayerField extends React.Component<{}, {ActivePlayer:[{name:string
                   )
 
                   }
-                  </div>
+                  </span>
 
 
             </div>
@@ -131,10 +156,7 @@ export class PlayerField extends React.Component<{}, {ActivePlayer:[{name:string
 }
 
 
-// {players.map((p,i ) => <Box player={p}
-//                                               changePlayer={(p) =>
-//                                                   this.setState({...this.state, ActivePlayer: state.ActivePlayer.map((p2, i2) =>
-//                                                       if i2==i return p2 else return p})} />)}
+
 /*
 wenn ich f12 auf habe und dann viele player habe gehen die buttons ncit, wtf?
 

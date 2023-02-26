@@ -31,7 +31,7 @@ function App() {
           <Route
           path={"/gamestats"} element={<>
 
-            <Link to="/" > <button className="buttons">Back to main</button> </Link>
+
             <PlayerField/>
             </>}
           />
